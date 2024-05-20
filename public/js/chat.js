@@ -73,7 +73,4 @@ socket.on('welcome-message', (data) => {
 socket.on('on-clients-changed', renderUsers);
 
 
-socket.on('on-message', (data) => {
-    console.log(data);
-
-})
+socket.on('on-message', renderMessage);
