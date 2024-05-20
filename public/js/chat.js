@@ -15,9 +15,9 @@ const userUlElement = document.querySelector('ul');
 
 const renderUsers = (users) => {
     userUlElement.innerHTML = '';
-    users.forEach(user => {
+    users.forEach((user) => {
         const li = document.createElement('li');
-        li.innerText = user;
+        li.innerText = user.name;
         userUlElement.appendChild(li);
     })
 
@@ -45,6 +45,5 @@ socket.on('welcome-message', (data) => {
     console.log(data);
 })
 
-socket.on('on-clients-changed', (data) => {
-    console.log(data);
-})
+socket.on('on-clients-changed', renderUsers);
+   
