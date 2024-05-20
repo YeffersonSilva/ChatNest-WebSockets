@@ -1,4 +1,4 @@
-import { WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
+import { ConnectedSocket, MessageBody, SubscribeMessage, WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
 import { OnModuleInit } from '@nestjs/common';
 import { Server, Socket } from 'socket.io';
 
@@ -24,14 +24,32 @@ export class ChatGateway implements OnModuleInit {
         name,
       });
 
-    //  socket.emit('welcome-message','Welcome to the chat!')
+      // socket.emit('welcome-message', 'Welcome to the chat!')
 
-    this.server.emit('on-clients-changed', this.chatService.getClients());
-      
-      
+      this.server.emit('on-clients-changed', this.chatService.getClients());
+
       socket.on('disconnect', () => {
         this.chatService.onClientDisconnect(socket.id);
+        this.server.emit('on-clients-changed', this.chatService.getClients());
       });
+    });
+  }
+
+  @SubscribeMessage('send-message')
+  handleMessages(
+    @MessageBody() message: string,
+    @ConnectedSocket() client: Socket,
+  ) {
+    const { name, token } = client.handshake.auth;
+
+    if (!message) {
+      return;
+    }
+
+    this.server.emit('on-message', {
+      userId: client.id,
+      message: message,
+      name: name,
     });
   }
 }
