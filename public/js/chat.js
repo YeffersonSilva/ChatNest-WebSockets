@@ -11,6 +11,17 @@ if(!username) {
 const lblStatusOnline = document.querySelector('#status-online');
 const lblStatusOffline = document.querySelector('#status-offline');
 
+const userUlElement = document.querySelector('ul');
+
+const renderUsers = (users) => {
+    userUlElement.innerHTML = '';
+    users.forEach(user => {
+        const li = document.createElement('li');
+        li.innerText = user;
+        userUlElement.appendChild(li);
+    })
+
+}
 
 const socket = io({
     auth: {
