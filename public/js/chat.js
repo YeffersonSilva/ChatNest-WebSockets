@@ -25,8 +25,11 @@ socket.on('connect', () => {
     lblStatusOnline.classList.remove('hidden');
     lblStatusOffline.classList.add('hidden');
 })
-
-Socket.on('disconnect', () => {
+socket.on('disconnect', () => {
     lblStatusOnline.classList.add('hidden');
     lblStatusOffline.classList.remove('hidden');
+})
+
+socket.on('welcome-message', (data) => {
+    console.log(data);
 })
