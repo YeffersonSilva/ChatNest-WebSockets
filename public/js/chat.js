@@ -33,3 +33,7 @@ socket.on('disconnect', () => {
 socket.on('welcome-message', (data) => {
     console.log(data);
 })
+
+socket.on('on-clients-changed', (data) => {
+    console.log(data);
+})

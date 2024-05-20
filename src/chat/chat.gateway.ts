@@ -24,8 +24,11 @@ export class ChatGateway implements OnModuleInit {
         name,
       });
 
-      socket.emit('welcome-message','Welcome to the chat!')
+    //  socket.emit('welcome-message','Welcome to the chat!')
 
+    this.server.emit('on-clients-changed', this.chatService.getClients());
+      
+      
       socket.on('disconnect', () => {
         this.chatService.onClientDisconnect(socket.id);
       });
