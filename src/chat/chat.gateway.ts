@@ -20,8 +20,13 @@ export class ChatGateway implements OnModuleInit {
         return;
       }
 
+      this.chatService.onClientConnect({
+        id: socket.id,
+        name
+      });
+
       socket.on('disconnect', () => {
-       // console.log('Client disconnected: ', socket);
+      this.chatService.onClientDisconnect(socket.id);
       });
     });
   }
