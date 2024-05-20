@@ -1,73 +1,77 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# 🗨️ ChatNest-WebSockets
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Welcome to **ChatNest-WebSockets**, a simple and fun real-time chat application built with NestJS and WebSockets! Connect with friends, see who's online, and chat instantly. 🚀
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+![image](https://github.com/YeffersonSilva/ChatNest-WebSockets/assets/117882117/ab160c27-e6ce-4398-8de9-a5c08aab9271)
 
-## Description
+## 🌟 Features
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- 🔥 Real-time messaging using WebSockets
+- 💡 Display online/offline status
+- 👥 Show connected users
+- 🎨 Dynamic and interactive user interface
 
-## Installation
+## 🚀 Getting Started
 
+### Prerequisites
+
+Before you begin, make sure you have:
+
+- [Node.js](https://nodejs.org/) (version 14 or higher)
+- [npm](https://www.npmjs.com/) (version 6 or higher)
+
+### Installation
+
+**Clone the repository:**
+
+   ```bash
+   git clone https://github.com/YeffersonSilva/ChatNest-WebSockets.git
+   cd ChatNest-WebSockets
+```
+**Install dependencies:**
 ```bash
-$ npm install
+  npm install
+```
+**Start the NestJS server:**
+```bash
+npm run start:dev
 ```
 
-## Running the app
+## 📝 Usage
 
-```bash
-# development
-$ npm run start
+1. Enter your username when prompted.
+2. Start chatting! See other connected users and their messages in real-time.
 
-# watch mode
-$ npm run start:dev
+### Example Conversation
 
-# production mode
-$ npm run start:prod
-```
+**Hulk:** Hulk smash!
 
-## Test
+**Tony Stark:** Why smash?
 
-```bash
-# unit tests
-$ npm run test
+**Hulk:** Smash bad guys.
 
-# e2e tests
-$ npm run test:e2e
+**Tony Stark:** Good plan.
 
-# test coverage
-$ npm run test:cov
-```
+## 🏗️ Project Structure
 
-## Support
+Here's a quick overview of the project's structure:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+- **`src/`**: Contains the NestJS server code.
+  - **`app.module.ts`**: Main module of the application.
+  - **`chat/`**: Contains chat-related modules, services, and gateways.
+    - **`chat.module.ts`**: Chat module.
+    - **`chat.gateway.ts`**: WebSocket gateway for chat functionality.
+    - **`chat.service.ts`**: Service for managing chat logic.
 
-## Stay in touch
+- **`public/`**: Contains static files served by the application.
+  - **`index.html`**: Main HTML file for the chat application.
+  - **`css/`**: Contains styles for the application.
+  - **`js/`**: Contains client-side JavaScript for the application.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## 💻 Client-side Code
 
-## License
+The client-side code handles the user interface and communication with the server using WebSockets. Key features include:
 
-Nest is [MIT licensed](LICENSE).
+- **Updating the list of connected users**
+- **Displaying messages in real-time**
+- **Showing online/offline status**
