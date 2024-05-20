@@ -13,8 +13,7 @@ export class ChatGateway implements OnModuleInit {
 
   onModuleInit() {
     this.server.on('connection', (socket: Socket) => {
-
-      const { name, token} = socket.handshake.auth;
+      const { name, token } = socket.handshake.auth;
       if (!name) {
         socket.disconnect();
         return;
@@ -22,11 +21,13 @@ export class ChatGateway implements OnModuleInit {
 
       this.chatService.onClientConnect({
         id: socket.id,
-        name
+        name,
       });
 
+      socket.emit('welcome-message','Welcome to the chat!')
+
       socket.on('disconnect', () => {
-      this.chatService.onClientDisconnect(socket.id);
+        this.chatService.onClientDisconnect(socket.id);
       });
     });
   }
